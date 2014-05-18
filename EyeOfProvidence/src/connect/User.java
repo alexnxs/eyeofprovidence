@@ -54,7 +54,8 @@ public class User implements Serializable
 		return email;
 	}
 
-	public int getId() {
+	public int getId() 
+	{
 		return id;
 	}
 

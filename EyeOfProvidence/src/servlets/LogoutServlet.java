@@ -36,7 +36,8 @@ public class LogoutServlet extends HttpServlet
         
         //invalidate the session if exists
         HttpSession session = request.getSession(false);
-        logger.info("User="+session.getAttribute("User"));
+        logger.info("User = " + session.getAttribute("User"));
+        
         if(session != null)
         {
             session.invalidate();
