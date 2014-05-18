@@ -44,4 +44,15 @@
 </header>
 <body>
 </body>
+<footer>
+<div class="footer-wrapper-outside">
+	<div class="footer pagewidth">
+		<div class="footer-wrapper">
+			<div class="footer">
+				<p>This webpage layout was created by Alexander Harris during Web Technologies I (CS 250), Winter quarter 2014 at Central Washington University.</p>
+			</div>
+		</div>
+	</div>	
+</div>
+</footer>
 </html>
