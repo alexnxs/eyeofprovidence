@@ -2,18 +2,67 @@
 <html>
 <head>
 <meta charset="US-ASCII">
+<link rel="stylesheet" href="styles.css" />
 <title>Register Page</title>
 </head>
+<header>
+	<div class="headerwrap">
+	<div class="header">
+	<img src="images/xbox2.jpg" class="logo" alt="xbox" title="xbox" style="height:100px; width:182px">
+		<h1>Eye of Providence</h1>
+		<h3>Always Watching</h3>
+		<p class="logoutP">
+			Welcome Guest! Please <a href="login.html">login</a> or <a href="register.html">register</a>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</p>
+	</div>
+	</div>
+	<div class="nav-wrapper-outside">
+	<div class="nav pagewidth">
+	<div class="nav-wrapper">
+	<div class="nav">
+		<nav class="clear">
+			<ul>
+				<li><a href="home.jsp">Home</a></li>
+				<li><a href="live.jsp">Watch Live</a></li>
+				<li><a href="record.jsp">Watch Recorded</a></li>
+				<li><a href="configure.jsp">Configure</a></li>
+			</ul>
+		</nav>
+	</div>
+	</div>
+	</div>
+	</div>
+</header>
 <body>
-<h3>Provide all the fields for registration.</h3>
-<form action="Register" method="post">
-<strong>Email ID</strong>:<input type="text" name="email"><br>
-<strong>Password</strong>:<input type="password" name="password"><br>
-<strong>Name</strong>:<input type="text" name="name"><br>
-<strong>Country</strong>:<input type="text" name="country"><br>
-<input type="submit" value="Register">
-</form>
-<br>
-If you are registered user, please <a href="login.html">login</a>.
+<div class="pagewidth">
+		<div class="pagewrap">
+			<div class="page">
+				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+					<h3>Provide all the fields for registration.</h3><br>
+					<form action="Register" method="post">
+					<p>
+						<label>Email ID: </label><input type="text" name="email"><br><br>
+						<label>Password:</label><input type="password" name="password"><br><br>
+						<label>Name: </label><input type="text" name="name"><br><br>
+						<label>Country:</label><input type="text" name="country"><br><br>
+						<input type="submit" class="formbutton" value="Register"><br><br>
+						If you are registered user, please <a href="login.html">login</a>.
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+</div>
 </body>
+<footer>
+<div class="footer-wrapper-outside">
+	<div class="footer pagewidth">
+		<div class="footer-wrapper">
+			<div class="footer">
+				<p>This webpage layout was created by Alexander Harris during Web Technologies I (CS 250), Winter quarter 2014 at Central Washington University.</p>
+			</div>
+		</div>
+	</div>	
+</div>
+</footer>
 </html>

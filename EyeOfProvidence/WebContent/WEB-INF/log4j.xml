@@ -2,8 +2,8 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
 	debug="false">
-	<appender name="dbexample" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${catalina.home}/logs/dbexample.log"/>
+	<appender name="authentication" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/authentication.log"/>
 		<param name="Append"            value="true" />
 		<param name="ImmediateFlush"    value="true" />
 		<param name="MaxFileSize"       value="20MB" />
@@ -12,15 +12,12 @@
 			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n" />
 		</layout>
 	</appender>
-	
 	<logger name="eyeofprovidence" additivity="false">
 		<level value="DEBUG" />
-		<appender-ref ref="dbexample"/>
+		<appender-ref ref="authentication"/>
 	</logger>
-	
 	<root>
 		<level value="debug" />
-		<appender-ref ref="dbexample" />
+		<appender-ref ref="authentication" />
 	</root>
-	
 </log4j:configuration>

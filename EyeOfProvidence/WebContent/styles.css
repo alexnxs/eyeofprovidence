@@ -179,7 +179,32 @@ form input, form textarea
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:1.0em;
 }
+
 form input.formbutton 
+{
+	background:#ff4500; none repeat-x scroll bottom left;
+	color:#ffffff;
+	border:1px solid #ff4500;
+	color:#ffffff;
+	font-size:0.8em;
+	padding:6px 14px;
+	font-weight:bold;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+input[disabled].formbutton
+{
+	background:	#ff4500 none repeat-x scroll bottom left;
+	color:#ffffff;
+	border:1px solid #ff4500;
+	color:#ffffff;
+	font-size:0.8em;
+	padding:6px 14px;
+	font-weight:bold;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+form input.bigformbutton 
 {
 	background:#ff4500 none repeat-x scroll bottom left;
 	color:#ffffff;
@@ -200,7 +225,7 @@ form input.formbutton
 	border-width:1px;
 }
 
-input[disabled].formbutton
+input[disabled].bigformbutton
 {
 	background:	#ff4500 none repeat-x scroll bottom left;
 	color:#ffffff;
@@ -429,3 +454,20 @@ form input.dogeMode
 }
 
 
+form label
+{
+	display: inline-block;
+	width: 100px;
+	font-weight: bold;
+	text-align:left;
+}
+
+br 
+{
+	line-height: 150%;
+}
+
+.logoutP
+{
+	text-align:right;
+}

@@ -43,8 +43,8 @@ public class LoginServlet extends HttpServlet {
         if(errorMsg != null)
         {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-            PrintWriter out= response.getWriter();
-            out.println("<font color=red>"+errorMsg+"</font>");
+            PrintWriter out = response.getWriter();
+            //out.println("<font color=red>"+errorMsg+"</font>");
             rd.include(request, response);
         }
         else
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
         		if(rs != null && rs.next())
         		{
         			User user = new User(rs.getString("name"), rs.getString("email"), rs.getString("country"), rs.getInt("id"));
-        			logger.info("User found with details="+user);
+        			logger.info("User found with details=" + user);
         			HttpSession session = request.getSession();
         			session.setAttribute("User", user);
         			response.sendRedirect("home.jsp");;
@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
         			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
         			PrintWriter out= response.getWriter();
         			logger.error("User not found with email="+email);
-        			out.println("<font color=red>No user found with given email id, please register first.</font>");
+        			//out.println("<font color=red>No user found with given email id, please register first.</font>");
         			rd.include(request, response);
         		}
         	} 
@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet {
         		} 
         		catch (SQLException e) 
         		{
-                logger.error("SQLException in closing PreparedStatement or ResultSet");;
+        			logger.error("SQLException in closing PreparedStatement or ResultSet");;
         		}
         	}
         }

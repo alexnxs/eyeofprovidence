@@ -22,7 +22,8 @@ public class AppErrorHandler extends HttpServlet {
 	}
 	
 	private void processError(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+			HttpServletResponse response) throws IOException 
+			{
 		// Analyze the servlet exception
 		Throwable throwable = (Throwable) request
 				.getAttribute("javax.servlet.error.exception");
@@ -30,12 +31,14 @@ public class AppErrorHandler extends HttpServlet {
 				.getAttribute("javax.servlet.error.status_code");
 		String servletName = (String) request
 				.getAttribute("javax.servlet.error.servlet_name");
-		if (servletName == null) {
+		if (servletName == null) 
+		{
 			servletName = "Unknown";
 		}
 		String requestUri = (String) request
 				.getAttribute("javax.servlet.error.request_uri");
-		if (requestUri == null) {
+		if (requestUri == null) 
+		{
 			requestUri = "Unknown";
 		}
 		
@@ -48,7 +51,9 @@ public class AppErrorHandler extends HttpServlet {
 	    	  out.write("<h3>Error Details</h3>");
 	    	  out.write("<strong>Status Code</strong>:"+statusCode+"<br>");
 	    	  out.write("<strong>Requested URI</strong>:"+requestUri);
-	      }else{
+	      }
+	      else
+	      {
 	    	  out.write("<h3>Exception Details</h3>");
 	    	  out.write("<ul><li>Servlet Name:"+servletName+"</li>");
 	    	  out.write("<li>Exception Name:"+throwable.getClass().getName()+"</li>");
@@ -58,7 +63,7 @@ public class AppErrorHandler extends HttpServlet {
 	      }
 	      
 	      out.write("<br><br>");
-	      out.write("<a href=\"login.html\">Login Page</a>");
+	      out.write("<a href=\"login.html\">Login</a>");
 	      out.write("</body></html>");
 	}
 }

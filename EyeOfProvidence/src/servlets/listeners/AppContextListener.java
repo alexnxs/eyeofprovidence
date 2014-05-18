@@ -15,9 +15,11 @@ import org.apache.log4j.xml.DOMConfigurator;
 import connect.DBConnectionManager;
 
 @WebListener
-public class AppContextListener implements ServletContextListener {
+public class AppContextListener implements ServletContextListener 
+{
 
-    public void contextInitialized(ServletContextEvent servletContextEvent) {
+    public void contextInitialized(ServletContextEvent servletContextEvent) 
+    {
     	ServletContext ctx = servletContextEvent.getServletContext();
     	
     	//initialize DB Connection
@@ -25,29 +27,40 @@ public class AppContextListener implements ServletContextListener {
     	String user = ctx.getInitParameter("dbUser");
     	String pwd = ctx.getInitParameter("dbPassword");
     	
-    	try {
+    	try 
+    	{
 			DBConnectionManager connectionManager = new DBConnectionManager(dbURL, user, pwd);
 			ctx.setAttribute("DBConnection", connectionManager.getConnection());
 			System.out.println("DB Connection initialized successfully.");
-		} catch (ClassNotFoundException e) {
+		}
+    	catch (ClassNotFoundException e) 
+		{
 			e.printStackTrace();
-		} catch (SQLException e) {
+		} 
+    	catch (SQLException e) 
+		{
 			e.printStackTrace();
 		}
     	
     	//initialize log4j
     	String log4jConfig = ctx.getInitParameter("log4j-config");
-    	if(log4jConfig == null){
+    	if(log4jConfig == null)
+    	{
     		System.err.println("No log4j-config init param, initializing log4j with BasicConfigurator");
 			BasicConfigurator.configure();
-    	}else {
+    	}
+    	else 
+    	{
 			String webAppPath = ctx.getRealPath("/");
 			String log4jProp = webAppPath + log4jConfig;
 			File log4jConfigFile = new File(log4jProp);
-			if (log4jConfigFile.exists()) {
+			if (log4jConfigFile.exists()) 
+			{
 				System.out.println("Initializing log4j with: " + log4jProp);
 				DOMConfigurator.configure(log4jProp);
-			} else {
+			}
+			else 
+			{
 				System.err.println(log4jProp + " file not found, initializing log4j with BasicConfigurator");
 				BasicConfigurator.configure();
 			}
@@ -55,13 +68,17 @@ public class AppContextListener implements ServletContextListener {
     	System.out.println("log4j configured properly");
     }
 
-    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+    public void contextDestroyed(ServletContextEvent servletContextEvent) 
+    {
     	Connection con = (Connection) servletContextEvent.getServletContext().getAttribute("DBConnection");
-    	try {
+    	try 
+    	{
 			con.close();
-		} catch (SQLException e) {
+		}
+    	
+    	catch (SQLException e) 
+		{
 			e.printStackTrace();
 		}
-    }
-	
+    }	
 }
