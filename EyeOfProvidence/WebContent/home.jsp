@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Eye of Providence</title>
+<title>Home</title>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="js/home.js" type="text/javascript"></script>
 <link rel="stylesheet" href="styles.css" />
