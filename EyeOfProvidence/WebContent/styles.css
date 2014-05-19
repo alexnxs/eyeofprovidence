@@ -243,12 +243,12 @@ input[disabled].bigformbutton
 
 a, a:visited 
 { 
-	color:#3366FF;
+	color:#ff4500;
 } 
 
 a:hover 
 { 
-	color:#3366FF; 
+	color:#ff4500; 
 }
 
 div.page 

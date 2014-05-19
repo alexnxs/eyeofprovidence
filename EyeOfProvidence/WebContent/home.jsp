@@ -1,4 +1,5 @@
 <%@page import="connect.User"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
     pageEncoding="US-ASCII"%>
 <!DOCTYPE html>
@@ -47,67 +48,19 @@
 		<div class="pagewrap">
 			<div class="page">
 				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
-					<h3>Example</h3>
+					<h3>Welcome <%=user.getName() %>!</h3>
 					<br />
-					<p>example example example example example example example example example example example example example example example example example example example example example</p>
+					<p>This is the user's home page. This page will overview information of the camera nodes in the user's system.</p>
 				</div>
-				<div id="homeLeftContainer" class="left-container">
-					<div id="whatDiv" class="padded-divs rounded-corners clear">
-						<form>
-							<input type="button" id="whatButton" class="formbutton" value="Button1"></input>
-						</form>
-						<div id="iWhat" class="innerDiv">
-							<br />
-							<p>example example exampleexample example exampleexample example exampleexample example exampleexample example example
-							example example exampleexample example exampleexample example exampleexample example exampleexample example example</p>
-						</div>				
-					</div>
-					<div id="whereDiv" class="padded-divs rounded-corners clear">
-						<form>
-							<input type="button" id="whereButton" class="formbutton" value="Button2"></input>
-						</form>
-						<div id="iWhere" class="innerDiv">
-							<br />
-							<p>example example exampleexample example exampleexample example exampleexample example exampleexample example example
-							example example exampleexample example exampleexample example exampleexample example exampleexample example example</p>
-						</div>
-					</div>
-					<div id="historyDiv" class="padded-divs rounded-corners clear">
-						<form>
-							<input type="button" id="historyButton" class="formbutton" value="Button3"></input>
-						</form>	
-						<div id="iHistory"	class="innerDiv">
-						<br />
-							<p>example example exampleexample example exampleexample example exampleexample example exampleexample example example
-							example example exampleexample example exampleexample example exampleexample example exampleexample example exampleexample example example</p>
-						</div>
-					</div>						
-				</div>
-				<div id="homeRightContainer" class="right-container">
-					<div id="videoDiv" class="padded-divs rounded-corners clear">
-						<form>
-							<input type="button" id="videoButton" class="formbutton" value="Button4"></input>
-						</form>	
-						<div id="iVid" class="innerDiv">
-						<br />
-						<h2>Example Title</h2>
-						<p>example example exampleexample example exampleexample example exampleexample example exampleexample example exampleexample example exampleexample example example
-						example example exampleexample example exampleexample example exampleexample example exampleexample example exampleexample example example
-						</p>
-						</div>
-				</div>	
-				<div id="charsDiv" class="padded-divs rounded-corners clear">
-					<form>
-						<input type="button" id="charButton" class="formbutton" value="Button5"></input>
-					</form>	
-					<div id="iChar"	class="innerDiv">
-						<br />
-						<h2>Example Title</h2>
-						<p>example example exampleexample example exampleexample example exampleexample example exampleexample example exampleexample example exampleexample example example
-						example example exampleexample example exampleexample example exampleexample example exampleexample example exampleexample example example
-						</p>
-						</div>
-					</div>	
+				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+					<h3>Camera 1</h3>
+					<br />
+					<p>
+					Name: Test Camera 1<br />
+					IP: 111.111.111.111<br/>
+					Port:1234<br/>
+					Description: I'm watching you.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -118,7 +71,7 @@
 	<div class="footer pagewidth">
 		<div class="footer-wrapper">
 			<div class="footer">
-				<p>This webpage layout was created by Alexander Harris during Web Technologies I (CS 250), Winter quarter 2014 at Central Washington University.</p>
+				<p>This web page layout was created by Alexander Harris during Web Technologies I (CS 250), Winter quarter 2014 at Central Washington University.</p>
 			</div>
 		</div>
 	</div>	
