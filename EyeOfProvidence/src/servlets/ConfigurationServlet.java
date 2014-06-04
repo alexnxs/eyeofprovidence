@@ -48,7 +48,7 @@ public class ConfigurationServlet extends HttpServlet {
 		}
 		else if( parameters.containsKey("modifyCamera[]") )
 		{
-			//TODO
+			//TODO: Addition Feature
 		}
 		else
 		{

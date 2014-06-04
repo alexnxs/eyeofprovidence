@@ -20,6 +20,7 @@ public class User implements Serializable
 		this.id = i;
 		this.country = country;
 		this.email = em;
+		this.cameras = null;
 	}
 
 	public void setName( String name ) 
@@ -71,6 +72,11 @@ public class User implements Serializable
 	public ArrayList<Camera> getCameras()
 	{
 		return cameras;
+	}
+	
+	public void setCameras( ArrayList<Camera> cams )
+	{
+		this.cameras = cams;
 	}
 	
 }

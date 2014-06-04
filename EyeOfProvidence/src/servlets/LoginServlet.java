@@ -1,13 +1,25 @@
 package servlets;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
  
+
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,8 +30,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 import org.apache.log4j.Logger;
 
+import connect.Camera;
 import connect.User;
  
  
@@ -82,6 +108,31 @@ public class LoginServlet extends HttpServlet {
         			if ( !uPath.exists() )  
         			{  
         				boolean status = uPath.mkdirs();  
+        			}
+        			
+        			File camPath = new File(uPath + "cameras.ser");
+        			
+        			// Read camera objects from file.
+        			if( camPath.exists() )
+        			{
+        				try(
+        					      InputStream file = new FileInputStream("cameras.ser");
+        					      InputStream buffer = new BufferedInputStream(file);
+        					      ObjectInput input = new ObjectInputStream (buffer);
+        				)
+        				{
+        					@SuppressWarnings("unchecked")
+							ArrayList<Camera> recoveredCameras = (ArrayList<Camera>) input.readObject();
+        					user.setCameras( recoveredCameras );
+        				}
+        				catch( ClassNotFoundException ex )
+        				{
+        					System.out.println(ex);
+        				}
+        				catch( IOException ex )
+        				{
+        					System.out.println(ex);
+        				}
         			}
         			response.sendRedirect("home.jsp");
         		}
