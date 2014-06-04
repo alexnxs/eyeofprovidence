@@ -79,4 +79,18 @@ public class User implements Serializable
 		this.cameras = cams;
 	}
 	
+	public boolean addCamera( Camera cam )
+	{
+		if (this.cameras.add( cam ))
+			return true;
+		return false;
+	}
+	
+	public boolean removeCamera( Camera cam )
+	{
+		if (this.cameras.remove( cam ))
+			return true;
+		return false;
+	}
+	
 }

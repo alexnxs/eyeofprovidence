@@ -14,6 +14,17 @@ public class Camera implements Serializable
 	private String type;
 	private String path;
 	
+	public Camera( String nm, String i, String prt, String desc, String proto, String tp, String pth )
+	{
+		this.name = nm;
+		this.ip = i;
+		this.port = prt;
+		this.description = desc;
+		this.protocol = proto;
+		this.type = tp;
+		this.path = pth;
+	}
+	
 	public String getIp() 
 	{
 		return ip;
