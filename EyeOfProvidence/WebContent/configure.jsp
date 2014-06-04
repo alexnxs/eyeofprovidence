@@ -46,17 +46,76 @@ import = "java.io.*"%>
 <body>
 	<div class="pagewidth">
 		<div class="pagewrap">
-			<div class="page" id="welcomePage">
+			<div class="page centeredText" id="welcomePage">
 				<div id="options" class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
 					<h3>Configuration Options</h3>
-					<br />	
+					<br/>
+					<form>	
 					<ul>
-					<li><a id="changePassword" href="javascript:;">Change Password</a></li>
-					<li><a id="addCam" href="javascript:;">Add Camera</a></li>
+					<li><input type="button" id="changePassword" class="formbutton" value="Change Password" /></li>
+					<li><input type="button" id="addCam" class="formbutton" value="Add Camera" /></li>
 					</ul>
+					</form>
 				</div>
 			</div>
 			<div id="contentPage" class="page">
+			
+			<div id="changePassDiv" class='contentDiv innerDiv padded-divs rounded-corners rounded-borders clear'>
+				<div class="left-container">
+					<div class="left-div">
+						<h3>Change Password</h3><br />
+						<form>
+						<p class="centeredText">
+							<label>Old Password: </label><input type="text" name="oldPassword" id="oldPassword" size=50/><br /><br />
+							<label>New Password: </label><input type="text" name="newPassword" id="newPassword" size=50/><br /><br />
+							<label>Confirm New Password: </label><input type="text" name="confirmPassword" id="confirmPassword" size=50/><br /><br />
+						</p>
+						</form>
+					</div>
+				</div>
+				<div class="right-container">
+					<div class="right-div">
+					<form>
+						<br><br><br><br><br><br><br><br><br><br><br>
+						<input type="button" id="changePassOK" class="formbutton" value="OK" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" id="changePassCancel" class="formbutton" value="Cancel" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</form>
+					</div>
+				</div>
+			</div>
+			
+			<div id="addCamDiv" class='contentDiv innerDiv padded-divs rounded-corners rounded-borders clear'>
+				<div class="left-container">
+					<div class="left-div">
+						<h3>Add Camera</h3><br>
+						<form>
+						<p class="centeredText">
+							<label>Name: </label><input type="text" name="camName" id="camName" size=50/><br /><br />
+							<label>IP: </label><input type="text" name="camIP" id="camIP" size=50/><br /><br />
+							<label>Port: </label><input type="text" name="camPort" id="camPort" size=50/><br /><br />
+							<label>Description: </label><input type="text" name="camDesc" id="camDesc" size=50/><br /><br />
+						</p>
+						<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<label>Protocol: </label><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<input type="radio" name="camProtocol" id="camProtocolRTSP" checked/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RTSP</label><br /><br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Type: </label><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<input type="radio" name="camType" id="camTypeRGB" checked/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RGB</label><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<input type="radio" name="camType" id="camTypeDepth"/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Depth</label><br />
+						</p>
+						</form>
+					</div>
+				</div>
+				<div class="right-container">
+					<div class="right-div">
+						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+						<form>
+							<input type="button" id="addCamOK" class="formbutton" value="OK" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="button" id="addCamCancel" class="formbutton" value="Cancel" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</form>
+					</div>
+				</div>
+			</div>
+			
 								<%
 				File uPath = (File) request.getSession().getAttribute("File");
 				
@@ -69,15 +128,28 @@ import = "java.io.*"%>
             		
 				%>
 								<div class="contentDiv padded-divs rounded-corners rounded-borders clear">
-								<h3><%=name%></h3>
-								<br />
-								<p>
-								Name: Test Camera 1<br />
-								IP: 111.111.111.111<br/>
-								Port:1234<br/>
-								Description: I'm watching you.
-								</p>
-								</div>			
+									<div class="left-container">
+										<div class="left-div">
+											<h3><%=name%></h3>
+											<br />
+											<p>
+											Name: Test Camera 1<br />
+											IP: 111.111.111.111<br/>
+											Port:1234<br/>
+											Description: I'm watching you.
+											</p>
+										</div>
+									</div>
+								
+									<div class="right-container">
+										<div class="right-div">
+										<form><br><br><br><br><br>
+											<input type="button" id="removeCam" class="formbutton" value="Remove Camera" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</form>
+										</div>
+									</div>
+								</div>
+											
      			<%
         		}
 				%>
@@ -86,14 +158,26 @@ import = "java.io.*"%>
 	</div>
 </body>
 <script>
-$("docuemnt").ready(function(){
+$("document").ready(function(){
 	$("#changePassword").click(function(){
-		$("#contentPage").prepend("<div class='welcomeDiv padded-divs rounded-corners rounded-borders clear'><h3>Change Password</h3></div>")
+		$("#changePassDiv").slideToggle("slow").css("display", "inline-block");;
+		$("#changePassword").prop('disabled', true).trigger("change");
 	});	
 	
 	$("#addCam").click(function(){
-		$("#contentPage").prepend("<div class='welcomeDiv padded-divs rounded-corners rounded-borders clear'><h3>Add Camera</h3></div>")
+		$("#addCamDiv").slideToggle("slow").css("display", "inline-block");;
+		$("#addCam").prop('disabled', true).trigger("change");
 	});	
+	
+	$("#changePassCancel").click(function(){
+		$("#changePassDiv").slideToggle("slow");
+		$("#changePassword").prop('disabled', false).trigger("change");
+	});
+	
+	$("#addCamCancel").click(function(){
+		$("#addCamDiv").slideToggle("slow");
+		$("#addCam").prop('disabled', false).trigger("change");
+	});
 });
 </script>
 <footer>
