@@ -47,12 +47,14 @@ import = "java.io.*"%>
 <body>
 	<div class="pagewidth">
 		<div class="pagewrap">
-			<div class="page">
+			<div class="page" id="welcomePage">
 				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
 					<h3>Welcome <%=user.getName() %>!</h3>
 					<br />
 					<p>This is the user's home page. This page will overview information of the camera nodes in the user's system.</p>
 				</div>
+			</div>
+			<div class="page" id="contentPage">
 				<%
 				File uPath = (File) request.getSession().getAttribute("File");
 				

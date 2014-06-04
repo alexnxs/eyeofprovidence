@@ -301,7 +301,7 @@ div.footer
 div.footer p 
 {
 	text-align:center;
-	color:#999;
+	color:#FFFFFF;
 	font-size:0.75em;
 	padding:20px 0;
 	margin:0;
@@ -309,7 +309,7 @@ div.footer p
 
 div.footer p a 
 {
-	color:#999;
+	color:#FFFFFF;
 	border-bottom:none;
 	text-decoration:underline;
 }
@@ -364,12 +364,6 @@ form input.formsubmit
 {
 	height:30px;
 	width:10%;
-}
-
-form input.dogeMode
-{
-	height:50px;
-	width: 50%;
 }
 
 .frame 

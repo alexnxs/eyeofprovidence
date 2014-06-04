@@ -46,15 +46,17 @@ import = "java.io.*"%>
 <body>
 	<div class="pagewidth">
 		<div class="pagewrap">
-			<div class="page">
-				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+			<div class="page" id="welcomePage">
+				<div id="options" class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
 					<h3>Configuration Options</h3>
 					<br />	
 					<ul>
-					<li><a href="">Change Password</a></li>
-					<li><a href="">Add Camera</a></li>
+					<li><a id="changePassword" href="javascript:;">Change Password</a></li>
+					<li><a id="addCam" href="javascript:;">Add Camera</a></li>
 					</ul>
 				</div>
+			</div>
+			<div id="contentPage" class="page">
 								<%
 				File uPath = (File) request.getSession().getAttribute("File");
 				
@@ -66,7 +68,7 @@ import = "java.io.*"%>
             		
             		
 				%>
-								<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+								<div class="contentDiv padded-divs rounded-corners rounded-borders clear">
 								<h3><%=name%></h3>
 								<br />
 								<p>
@@ -83,6 +85,17 @@ import = "java.io.*"%>
 		</div>
 	</div>
 </body>
+<script>
+$("docuemnt").ready(function(){
+	$("#changePassword").click(function(){
+		$("#contentPage").prepend("<div class='welcomeDiv padded-divs rounded-corners rounded-borders clear'><h3>Change Password</h3></div>")
+	});	
+	
+	$("#addCam").click(function(){
+		$("#contentPage").prepend("<div class='welcomeDiv padded-divs rounded-corners rounded-borders clear'><h3>Add Camera</h3></div>")
+	});	
+});
+</script>
 <footer>
 <div class="footer-wrapper-outside">
 	<div class="footer pagewidth">
