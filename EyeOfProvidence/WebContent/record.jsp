@@ -8,7 +8,7 @@
 <title>Watch Recorded Video</title>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="js/home.js" type="text/javascript"></script>
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="css/styles.css"  />
 </head>
 <header>
 	<% User user = (User) session.getAttribute("User"); %>
@@ -49,7 +49,7 @@
 	<div class="footer pagewidth">
 		<div class="footer-wrapper">
 			<div class="footer">
-				<p>This webpage layout was created by Alexander Harris during Web Technologies I (CS 250), Winter quarter 2014 at Central Washington University.</p>
+				<p>This webpage layout was created by Alexander Harris at Central Washington University.</p>
 			</div>
 		</div>
 	</div>	

@@ -1,4 +1,5 @@
-<%@page import="connect.User"%>
+<%@page import="connect.User"
+import = "java.io.*"%>
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
     pageEncoding="US-ASCII"%>
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
 <title>Configure</title>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="js/home.js" type="text/javascript"></script>
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="css/styles.css" />
 </head>
 <header>
 	<% User user = (User) session.getAttribute("User"); %>
@@ -43,13 +44,51 @@
 	</div>
 </header>
 <body>
+	<div class="pagewidth">
+		<div class="pagewrap">
+			<div class="page">
+				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+					<h3>Configuration Options</h3>
+					<br />	
+					<ul>
+					<li><a href="">Change Password</a></li>
+					<li><a href="">Add Camera</a></li>
+					</ul>
+				</div>
+								<%
+				File uPath = (File) request.getSession().getAttribute("File");
+				
+				File[] files = uPath.listFiles();
+       	 		for(int i = 0 ; i < files.length ; i++)
+       	 		{
+            		String name = files[i].getName();
+            		String paths = files[i].getPath();
+            		
+            		
+				%>
+								<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+								<h3><%=name%></h3>
+								<br />
+								<p>
+								Name: Test Camera 1<br />
+								IP: 111.111.111.111<br/>
+								Port:1234<br/>
+								Description: I'm watching you.
+								</p>
+								</div>			
+     			<%
+        		}
+				%>
+			</div>
+		</div>
+	</div>
 </body>
 <footer>
 <div class="footer-wrapper-outside">
 	<div class="footer pagewidth">
 		<div class="footer-wrapper">
 			<div class="footer">
-				<p>This webpage layout was created by Alexander Harris during Web Technologies I (CS 250), Winter quarter 2014 at Central Washington University.</p>
+				<p>This webpage layout was created by Alexander Harris at Central Washington University.</p>
 			</div>
 		</div>
 	</div>	
