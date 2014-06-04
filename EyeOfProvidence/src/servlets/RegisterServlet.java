@@ -54,7 +54,7 @@ public class RegisterServlet extends HttpServlet
 		{
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/register.html");
 			PrintWriter out= response.getWriter();
-			//out.println("<font color=red>" + errorMsg + "</font>");
+			out.println("<font color=red>" + errorMsg + "</font>");
 			rd.include(request, response);
 		}
 		else
@@ -78,6 +78,7 @@ public class RegisterServlet extends HttpServlet
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
 			PrintWriter out= response.getWriter();
 			//out.println("<font color=green>Registration successful, please login below.</font>");
+			response.sendRedirect("loginSuccess.html");
 			rd.include(request, response);
 		} 
 		catch (SQLException e) 

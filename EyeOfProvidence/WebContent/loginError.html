@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<link rel="stylesheet" href="styles.css" />
+<title>Login</title>
+</head>
+<header>
+	<div class="headerwrap">
+	<div class="header">
+	<img src="images/xbox2.jpg" class="logo" alt="xbox" title="xbox" style="height:100px; width:182px">
+		<h1>Eye of Providence</h1>
+		<h3>Always Watching</h3>
+		<p class="logoutP">
+			Welcome Guest! Please <a href="login.html">login</a> or <a href="register.html">register</a>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</p>
+	</div>
+	</div>
+	<div class="nav-wrapper-outside">
+	<div class="nav pagewidth">
+	<div class="nav-wrapper">
+	<div class="nav">
+		<nav class="clear">
+			<ul>
+				<li><a href="home.jsp">Home</a></li>
+				<li><a href="live.jsp">Watch Live</a></li>
+				<li><a href="record.jsp">Watch Recorded</a></li>
+				<li><a href="configure.jsp">Configure</a></li>
+			</ul>
+		</nav>
+	</div>
+	</div>
+	</div>
+	</div>
+</header>
+<body>
+	<div class="pagewidth">
+		<div class="pagewrap">
+			<div class="page">
+				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+					<h3>Login with email and password</h3>
+					<br />
+						<form action="Login" class="formbutton" method="post">
+						<p>
+							<label>Email: </label><input type="text" name="email"><br>
+							<br><label>Password: </label><input type="password" name="password"><br>
+							<br><input type="submit" class="formbutton" value="Login"><br><br>
+							If you are a new user, please <a href="register.html">register</a>.<br><br>
+							<font color=red>No user found with given email id, please register first.</font>
+						</p>
+						</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<footer>
+<div class="footer-wrapper-outside">
+	<div class="footer pagewidth">
+		<div class="footer-wrapper">
+			<div class="footer">
+				<p>This webpage layout was created by Alexander Harris during Web Technologies I (CS 250), Winter quarter 2014 at Central Washington University.</p>
+			</div>
+		</div>
+	</div>	
+</div>
+</footer>
+</html>

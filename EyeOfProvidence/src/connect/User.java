@@ -1,6 +1,7 @@
 package connect;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class User implements Serializable
 {
@@ -11,38 +12,35 @@ public class User implements Serializable
 	private String email;
 	private int id;
 	private String country;
+	private ArrayList<Camera> cameras;
 	
 	public User(String nm, String em, String country, int i)
 	{
-		this.name=nm;
-		this.id=i;
-		this.country=country;
-		this.email=em;
+		this.name = nm;
+		this.id = i;
+		this.country = country;
+		this.email = em;
 	}
 
-	public void setName(String name) 
+	public void setName( String name ) 
 	{
 		this.name = name;
 	}
 
-
-	public void setEmail(String email) 
+	public void setEmail( String email ) 
 	{
 		this.email = email;
 	}
-
 
 	public void setId(int id) 
 	{
 		this.id = id;
 	}
 
-
-	public void setCountry(String country) 
+	public void setCountry( String country ) 
 	{
 		this.country = country;
 	}
-
 
 	public String getName() 
 	{
@@ -69,4 +67,10 @@ public class User implements Serializable
 	{
 		return "Name=" + this.name + ", Email=" + this.email+ ", Country=" + this.country;
 	}
+	
+	public ArrayList<Camera> getCameras()
+	{
+		return cameras;
+	}
+	
 }

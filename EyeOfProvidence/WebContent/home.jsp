@@ -1,4 +1,5 @@
-<%@page import="connect.User"%>
+<%@page import="connect.User"
+import = "java.io.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
     pageEncoding="US-ASCII"%>
@@ -52,16 +53,31 @@
 					<br />
 					<p>This is the user's home page. This page will overview information of the camera nodes in the user's system.</p>
 				</div>
-				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
-					<h3>Camera 1</h3>
-					<br />
-					<p>
-					Name: Test Camera 1<br />
-					IP: 111.111.111.111<br/>
-					Port:1234<br/>
-					Description: I'm watching you.
-					</p>
-				</div>
+				<%
+				File uPath = (File) request.getSession().getAttribute("File");
+				
+				File[] files = uPath.listFiles();
+       	 		for(int i = 0 ; i < files.length ; i++)
+       	 		{
+            		String name = files[i].getName();
+            		String paths = files[i].getPath();
+            		
+            		
+				%>
+								<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+								<h3><%=name%></h3>
+								<br />
+								<p>
+								Name: Test Camera 1<br />
+								IP: 111.111.111.111<br/>
+								Port:1234<br/>
+								Description: I'm watching you.
+								</p>
+								</div>			
+     			<%
+        		}
+				%>
+				
 			</div>
 		</div>
 	</div>

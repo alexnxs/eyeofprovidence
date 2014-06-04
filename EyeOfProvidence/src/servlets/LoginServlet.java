@@ -1,5 +1,6 @@
 package servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
  
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
  
+
 import org.apache.log4j.Logger;
+
 import connect.User;
  
  
@@ -44,7 +48,7 @@ public class LoginServlet extends HttpServlet {
         {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
             PrintWriter out = response.getWriter();
-            //out.println("<font color=red>"+errorMsg+"</font>");
+            out.println("<font color=red>"+errorMsg+"</font>");
             rd.include(request, response);
         }
         else
@@ -66,7 +70,20 @@ public class LoginServlet extends HttpServlet {
         			logger.info("User found with details=" + user);
         			HttpSession session = request.getSession();
         			session.setAttribute("User", user);
-        			response.sendRedirect("home.jsp");;
+        			
+        			String userFolder = user.getEmail();
+        			System.out.println(userFolder);
+        			
+        			File uPath = new File( getServletContext().getRealPath("/") + "/" + userFolder + "/" );
+        			session.setAttribute("File", uPath);
+        			
+        			System.out.println(uPath);
+        			
+        			if ( !uPath.exists() )  
+        			{  
+        				boolean status = uPath.mkdirs();  
+        			}
+        			response.sendRedirect("home.jsp");
         		}
         		else
         		{
@@ -74,6 +91,7 @@ public class LoginServlet extends HttpServlet {
         			PrintWriter out= response.getWriter();
         			logger.error("User not found with email="+email);
         			//out.println("<font color=red>No user found with given email id, please register first.</font>");
+        			response.sendRedirect("loginError.html");
         			rd.include(request, response);
         		}
         	} 
