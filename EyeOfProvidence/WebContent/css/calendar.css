@@ -10,8 +10,8 @@
 
 .fc-calendar-container {
 	position: relative;
-	height: 400px;
-	width: 400px;
+	height: 1100px;
+	width: 100%;
 }
 
 .fc-calendar {
@@ -22,7 +22,7 @@
 .fc-calendar .fc-head {
 	height: 30px;
 	line-height: 30px;
-	background: #ccc;
+	background: #ff4500;
 	color: #fff;
 }
 
@@ -91,7 +91,7 @@
 	font-size: 20px;
 	line-height: 20px;
 	font-weight: 700;
-	color: #ddd;
+	color: #ff4500;
 	text-shadow: 0 -1px 0 rgba(255,255,255,0.8);
 	bottom: 5px;
 	right: 5px;

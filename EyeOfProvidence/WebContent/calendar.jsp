@@ -9,7 +9,11 @@ import="java.io.File" %>
 <title>Watch Recorded Video</title>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="js/home.js" type="text/javascript"></script>
-<link rel="stylesheet" href="css/styles.css"  />
+<script src="js/modernizr.custom.63321.js"></script>
+<script src="js/jquery.calendario.js"></script>
+<script src="js/datajs"></script>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/calendar.css" />
 </head>
 <header>
 	<% User user = (User) session.getAttribute("User"); %>
@@ -44,11 +48,22 @@ import="java.io.File" %>
 	</div>
 </header>
 <body>
-	<div id="calendar" class="fc-calendar-container"></div>
+	<div class="pagewidth">
+		<div class="pagewrap">
+			<div class="page centeredText" id="welcomePage">
+				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+					<h3>Click on a day to see any video recordings for that day.</h3>
+				</div>
+					<div id="calendar" class="fc-calendar-container"></div>
+			</div>
+		</div>
+	</div>
 </body>
 <script>
 $( '#calendar' ).calendario();
 </script>
+<style>
+</style>
 <footer>
 <div class="footer-wrapper-outside">
 	<div class="footer pagewidth">
