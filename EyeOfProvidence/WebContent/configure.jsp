@@ -177,6 +177,11 @@ $("document").ready(function(){
 		$("#addCam").prop('disabled', false).trigger("change");
 	});
 	
+	$("#changePassOK").click(function(){
+		$("#changePassDiv").slideToggle("slow");
+		$("#changePassword").prop('disabled', false).trigger("change");
+	});
+	
 	$("#addCamOK").click(function(){
 		var addCamera = new Array();
 		

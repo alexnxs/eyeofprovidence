@@ -43,6 +43,59 @@
 	</div>
 </header>
 <body>
+	<div class="pagewidth">
+		<div class="pagewrap">
+			<div class="page centeredText" id="welcomePage">
+			<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
+				<h3>Watch Live Video Streams</h3>
+				<br/>
+				<p>This section would display any errors received by the system for different camera nodes. Below is where live stream footage can be viewed.</p>		
+			</div>
+				<div class="left-container">
+					<div class='padded-divs rounded-corners rounded-borders clear'>
+						<iframe width="357" height="293"
+						src="//www.youtube.com/embed/dQw4w9WgXcQ?feature=player_detailpage">
+						</iframe>
+					</div>
+				</div>
+				<div class="right-container">
+					<div class='padded-divs rounded-corners rounded-borders clear'>
+						<iframe width="357" height="293"
+						src="//www.youtube.com/embed/dQw4w9WgXcQ?feature=player_detailpage">
+						</iframe>
+					</div>
+				</div>
+				<div class="left-container">
+					<div class='padded-divs rounded-corners rounded-borders clear'>
+						<iframe width="357" height="293"
+						src="//www.youtube.com/embed/dQw4w9WgXcQ?feature=player_detailpage">
+						</iframe>
+					</div>
+				</div>
+				<div class="right-container">
+					<div class='padded-divs rounded-corners rounded-borders clear'>
+						<iframe width="357" height="293"
+						src="//www.youtube.com/embed/dQw4w9WgXcQ?feature=player_detailpage">
+						</iframe>
+					</div>
+				</div>
+				<div class="left-container">
+					<div class='padded-divs rounded-corners rounded-borders clear'>
+						<iframe width="357" height="293"
+						src="//www.youtube.com/embed/dQw4w9WgXcQ?feature=player_detailpage">
+						</iframe>
+					</div>
+				</div>
+				<div class="right-container">
+					<div class='padded-divs rounded-corners rounded-borders clear'>
+						<iframe width="357" height="293"
+						src="//www.youtube.com/embed/dQw4w9WgXcQ?feature=player_detailpage">
+						</iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 <footer>
 <div class="footer-wrapper-outside">
