@@ -44,31 +44,11 @@ import="java.io.File" %>
 	</div>
 </header>
 <body>
-	<div class="pagewidth">
-		<div class="pagewrap">
-			<div class="page centeredText" id="welcomePage">
-				<div class="welcomeDiv padded-divs rounded-corners rounded-borders clear">
-				<h3>Pick a Camera</h3><br>
-						<% 	User newUser = (User) request.getSession().getAttribute("User");
-							
-							File uPath = (File) request.getSession().getAttribute("File");
-							
-        					File[] files = uPath.listFiles();
-       	 					for(int i=0;i<files.length;i++)
-       	 					{
-            					String name=files[i].getName();
-            					String paths=files[i].getPath();
-						%>
-									<a href="CalendarServlet?fileName=/<%=uPath%>/<%=name%>" target="_blank"><%=name%></a><br /><br />
-									
-     					<%
-        					}
-						%>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div id="calendar" class="fc-calendar-container"></div>
 </body>
+<script>
+$( '#calendar' ).calendario();
+</script>
 <footer>
 <div class="footer-wrapper-outside">
 	<div class="footer pagewidth">

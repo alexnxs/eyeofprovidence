@@ -213,17 +213,6 @@ $("document").ready(function(){
 	$(".removeCam").click(function(){
 		var removeCamera = new Array();
 		
-		$.ajax({
-			url:"ConfigurationServlet",
-			type:"GET",
-			dataType:"json",
-			data: {removeCamera:removeCamera},
-			success:function(data)
-			{
-			},
-		});
-		
-		
 		$(this).closest(".contentDiv").remove();
 		
 		});
