@@ -14,13 +14,13 @@ public class User implements Serializable
 	private String country;
 	private ArrayList<Camera> cameras;
 	
-	public User(String nm, String em, String country, int i)
+	public User( String nm, String em, String country, int i )
 	{
 		this.name = nm;
 		this.id = i;
 		this.country = country;
 		this.email = em;
-		this.cameras = null;
+		this.cameras = new ArrayList<Camera>();
 	}
 
 	public void setName( String name ) 
@@ -79,18 +79,13 @@ public class User implements Serializable
 		this.cameras = cams;
 	}
 	
-	public boolean addCamera( Camera cam )
+	public void addCamera( Camera cam )
 	{
-		if (this.cameras.add( cam ))
-			return true;
-		return false;
+		this.cameras.add( cam );
 	}
 	
-	public boolean removeCamera( Camera cam )
+	public void removeCamera( Camera cam )
 	{
-		if (this.cameras.remove( cam ))
-			return true;
-		return false;
+		this.cameras.remove( cam );
 	}
-	
 }

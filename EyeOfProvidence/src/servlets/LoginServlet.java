@@ -1,24 +1,16 @@
 package servlets;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
- 
-
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -28,20 +20,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 import org.apache.log4j.Logger;
 
@@ -73,7 +51,7 @@ public class LoginServlet extends HttpServlet {
         if(errorMsg != null)
         {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-            PrintWriter out = response.getWriter();
+            //PrintWriter out = response.getWriter();
             //out.println("<font color=red>"+errorMsg+"</font>");
             rd.include(request, response);
         }
@@ -107,7 +85,8 @@ public class LoginServlet extends HttpServlet {
         			
         			if ( !uPath.exists() )  
         			{  
-        				boolean status = uPath.mkdirs();  
+        				@SuppressWarnings("unused")
+						boolean status = uPath.mkdirs();  
         			}
         			
         			File camPath = new File(uPath + "cameras.ser");
@@ -139,7 +118,7 @@ public class LoginServlet extends HttpServlet {
         		else
         		{
         			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-        			PrintWriter out= response.getWriter();
+        			//PrintWriter out= response.getWriter();
         			logger.error("User not found with email="+email);
         			//out.println("<font color=red>No user found with given email id, please register first.</font>");
         			response.sendRedirect("loginError.html");

@@ -88,19 +88,17 @@ import = "java.io.*"%>
 				<div class="left-container">
 					<div class="left-div">
 						<h3>Add Camera</h3><br>
-						<form>
+						<form id="addCamForm">
 						<p class="centeredText">
 							<label>Name: </label><input type="text" name="camName" id="camName" size=50/><br /><br />
 							<label>IP: </label><input type="text" name="camIP" id="camIP" size=50/><br /><br />
 							<label>Port: </label><input type="text" name="camPort" id="camPort" size=50/><br /><br />
 							<label>Description: </label><input type="text" name="camDesc" id="camDesc" size=50/><br /><br />
-						</p>
-						<p>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<label>Protocol: </label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<input type="radio" name="camProtocol" id="camProtocolRTSP" checked/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RTSP</label><br /><br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Type: </label><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<input type="radio" name="camType" id="camTypeRGB" checked/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RGB</label><br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<input type="radio" name="camType" id="camTypeDepth"/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Depth</label><br />
+							<label>Protocol: </label><br>
+								<input type="radio" name="camProto" id="camProtocolRTSP" value="rtsp" checked/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RTSP</label><br /><br />
+							<label>Type: </label><br>
+								<input type="radio" name="camType" id="camTypeRGB" value="rgb" checked/><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RGB</label><br />
+								<input type="radio" name="camType" id="camTypeDepth" value="depth" /><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Depth</label><br />
 						</p>
 						</form>
 					</div>
@@ -133,7 +131,7 @@ import = "java.io.*"%>
 											<h3><%=name%></h3>
 											<br />
 											<p>
-											Name: Test Camera 1<br />
+											<label class=cName>Name: Test Camera 1</label><br />
 											IP: 111.111.111.111<br/>
 											Port:1234<br/>
 											Description: I'm watching you.
@@ -144,7 +142,7 @@ import = "java.io.*"%>
 									<div class="right-container">
 										<div class="right-div">
 										<form><br><br><br><br><br>
-											<input type="button" id="removeCam" class="formbutton" value="Remove Camera" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type="button" class="removeCam formbutton" value="Remove Camera" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</form>
 										</div>
 									</div>
@@ -178,6 +176,52 @@ $("document").ready(function(){
 		$("#addCamDiv").slideToggle("slow");
 		$("#addCam").prop('disabled', false).trigger("change");
 	});
+	
+	$("#addCamOK").click(function(){
+		var addCamera = new Array();
+		
+		var name = $("#camName").val();
+		var ip = $("#camIP").val();
+		var port = $("#camPort").val();
+		var desc = $("#camDesc").val();
+		var proto = $("input:radio[name=camProto]:checked", "#addCamForm" ).val();
+		var type = $("input:radio[name=camType]:checked", "#addCamForm").val();
+		
+		addCamera.push(name, ip, port, desc, proto, type);
+		
+		$("#addCamDiv").slideToggle("slow");
+		$('#addCamForm').trigger("reset");
+		$("#addCam").prop('disabled', false).trigger("change");
+		location.reload();
+		$.ajax({
+			url:"ConfigurationServlet",
+			type:"GET",
+			dataType:"json",
+			data: {addCamera:addCamera},
+			success:function(data)
+			{
+			},
+		});
+		location.reload();
+	});
+	
+	$(".removeCam").click(function(){
+		var removeCamera = new Array();
+		
+		$.ajax({
+			url:"ConfigurationServlet",
+			type:"GET",
+			dataType:"json",
+			data: {removeCamera:removeCamera},
+			success:function(data)
+			{
+			},
+		});
+		
+		
+		$(this).closest(".contentDiv").remove();
+		
+		});
 });
 </script>
 <footer>

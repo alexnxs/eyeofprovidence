@@ -1,5 +1,6 @@
 package connect;
 
+import java.io.File;
 import java.io.Serializable;
 
 public class Camera implements Serializable
@@ -12,9 +13,9 @@ public class Camera implements Serializable
 	private String name;
 	private String description;
 	private String type;
-	private String path;
+	private File path;
 	
-	public Camera( String nm, String i, String prt, String desc, String proto, String tp, String pth )
+	public Camera( String nm, String i, String prt, String desc, String proto, String tp, File camPath )
 	{
 		this.name = nm;
 		this.ip = i;
@@ -22,7 +23,7 @@ public class Camera implements Serializable
 		this.description = desc;
 		this.protocol = proto;
 		this.type = tp;
-		this.path = pth;
+		this.path = camPath;
 	}
 	
 	public String getIp() 
@@ -73,11 +74,11 @@ public class Camera implements Serializable
 	{
 		this.type = type;
 	}
-	public String getPath() 
+	public File getPath() 
 	{
 		return path;
 	}
-	public void setPath(String path) 
+	public void setPath(File path) 
 	{
 		this.path = path;
 	}
